@@ -37,6 +37,6 @@ else
 	jump_held = gamepad_button_check(0, gp_face1);
 	//speed = point_distance(0 ,0, haxis, vaxis) * 5;
 	
-	hspd = haxis;
-	vspd = vaxis;
+	hspd = abs(haxis) > 0.2 ? haxis : 0;
+	vspd = abs(vaxis) > 0.2 ? vaxis : 0;
 }

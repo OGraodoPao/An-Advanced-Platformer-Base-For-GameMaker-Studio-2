@@ -14,6 +14,8 @@ speed_buildup = 0.1;
 
 jump_force = 7;
 
+slope_offset = 2.5;
+
 // Dynamic systems variables
 respect_dynamic_jump = true;
 coyote_time_max = 0.3 * room_speed; // In seconds

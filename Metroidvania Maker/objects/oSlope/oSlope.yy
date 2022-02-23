@@ -1,13 +1,16 @@
 {
   "spriteId": {
-    "name": "sSolid",
-    "path": "sprites/sSolid/sSolid.yy",
+    "name": "sSolidSlope",
+    "path": "sprites/sSolidSlope/sSolidSlope.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "pSolid",
+    "path": "objects/pSolid/pSolid.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -28,7 +31,7 @@
     "path": "folders/Objects/Collision blocks.yy",
   },
   "resourceVersion": "1.0",
-  "name": "pSolid",
+  "name": "oSlope",
   "tags": [],
   "resourceType": "GMObject",
 }

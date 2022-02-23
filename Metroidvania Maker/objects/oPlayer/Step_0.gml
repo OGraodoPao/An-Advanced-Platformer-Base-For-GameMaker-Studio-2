@@ -18,7 +18,7 @@ var jump_held = oInput.jump_held; //keyboard_check(vk_space);
 var on_ground = place_meeting(x, y + 1, pSolid);
 var next_to_ground = collision_line(x, y, x, y + sprite_height * 4, pSolid, false, false) != noone;
 
-var hitting_block = collision_rectangle(bbox_left, bbox_bottom - 1, bbox_right, bbox_top + vspd, pSolid, false, false)//instance_place(x, y + vspd, pSolid);
+var hitting_block = collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top + vspd, pSolid, false, false)//instance_place(x, y + vspd, pSolid);
 
 
 // If the player jumped on the wrong position while trying to get on top of a block, corrects the position
@@ -46,12 +46,14 @@ if (hitting_block != noone)
         // Left position correction
         x = hitting_block.bbox_left - sprite_width / 2;
         //ignore_collision_this_frame = true;
+		show_debug_message("Corrected");
     }
     else if (right_offset < correct_offset)
     {
         // Right position correction
         x = hitting_block.bbox_right + sprite_width / 2;
         //ignore_collision_this_frame = true;
+		show_debug_message("Corrected");
     }
 	else
 	{
@@ -109,21 +111,34 @@ else
 
 // Collisions
 if (!ignore_collision_this_frame)
-{
+{	
     if (place_meeting(x + hspd, y, pSolid))
     {
-        while (!place_meeting(x + sign(hspd), y, pSolid))
-        {
-            x += sign(hspd);
-        }
-        hspd = 0;
+		// Slope
+		if (!place_meeting(x + hspd, y - slope_offset, pSolid))
+		{
+			while (place_meeting(x + hspd, y, pSolid))
+			{
+				y -= 0.1;
+			}
+			y -= 1;
+		}
+		else
+		{
+			// Corrects position
+	        while (!place_meeting(x + sign(hspd), y, pSolid))
+	        {
+	            x += 0.1 * sign(hspd);
+	        }
+	        hspd = 0;
+		}
     }
     
     if (place_meeting(x, y + vspd, pSolid))
     {
         while (!place_meeting(x, y + sign(vspd), pSolid))
         {
-            y += sign(vspd);
+            y += 0.1 * sign(vspd);
         }
         vspd = 0;
     }

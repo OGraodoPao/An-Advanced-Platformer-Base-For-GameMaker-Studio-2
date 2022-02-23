@@ -1,15 +1,15 @@
 {
   "bboxMode": 0,
-  "collisionKind": 1,
+  "collisionKind": 0,
   "type": 0,
   "origin": 7,
   "preMultiplyAlpha": false,
-  "edgeFiltering": false,
+  "edgeFiltering": true,
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
   "bbox_left": 0,
   "bbox_right": 15,
-  "bbox_top": 0,
+  "bbox_top": 8,
   "bbox_bottom": 15,
   "HTile": false,
   "VTile": false,
@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"fdb5c439-7b49-477f-b0e7-9b3b8e3065f3","path":"sprites/sSolid/sSolid.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"fdb5c439-7b49-477f-b0e7-9b3b8e3065f3","path":"sprites/sSolid/sSolid.yy",},"LayerId":{"name":"9d00f1c4-f74e-4e60-b06c-6f937a8f9d96","path":"sprites/sSolid/sSolid.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"sSolid","path":"sprites/sSolid/sSolid.yy",},"resourceVersion":"1.0","name":"fdb5c439-7b49-477f-b0e7-9b3b8e3065f3","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"fdb5c439-7b49-477f-b0e7-9b3b8e3065f3","path":"sprites/sSolidSlope/sSolidSlope.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"fdb5c439-7b49-477f-b0e7-9b3b8e3065f3","path":"sprites/sSolidSlope/sSolidSlope.yy",},"LayerId":{"name":"9d00f1c4-f74e-4e60-b06c-6f937a8f9d96","path":"sprites/sSolidSlope/sSolidSlope.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"sSolidSlope","path":"sprites/sSolidSlope/sSolidSlope.yy",},"resourceVersion":"1.0","name":"fdb5c439-7b49-477f-b0e7-9b3b8e3065f3","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"sSolid","path":"sprites/sSolid/sSolid.yy",},
+    "spriteId": {"name":"sSolidSlope","path":"sprites/sSolidSlope/sSolidSlope.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"6c13caba-b295-4521-96a1-811c5996e809","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"fdb5c439-7b49-477f-b0e7-9b3b8e3065f3","path":"sprites/sSolid/sSolid.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"5b7d46b3-b4c6-4fb0-ac13-d15792ac4588","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"fdb5c439-7b49-477f-b0e7-9b3b8e3065f3","path":"sprites/sSolidSlope/sSolidSlope.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -58,9 +58,9 @@
     "yorigin": 16,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"sSolid","path":"sprites/sSolid/sSolid.yy",},
+    "parent": {"name":"sSolidSlope","path":"sprites/sSolidSlope/sSolidSlope.yy",},
     "resourceVersion": "1.3",
-    "name": "sSolid",
+    "name": "sSolidSlope",
     "tags": [],
     "resourceType": "GMSequence",
   },
@@ -68,10 +68,10 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"9d00f1c4-f74e-4e60-b06c-6f937a8f9d96","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": {
-    "left": 1,
-    "top": 1,
-    "right": 1,
-    "bottom": 1,
+    "left": 0,
+    "top": 0,
+    "right": 0,
+    "bottom": 0,
     "guideColour": [
       4294902015,
       4294902015,
@@ -80,7 +80,7 @@
     ],
     "highlightColour": 1728023040,
     "highlightStyle": 0,
-    "enabled": true,
+    "enabled": false,
     "tileMode": [
       0,
       0,
@@ -97,7 +97,7 @@
     "path": "folders/Sprites.yy",
   },
   "resourceVersion": "1.0",
-  "name": "sSolid",
+  "name": "sSolidSlope",
   "tags": [],
   "resourceType": "GMSprite",
 }
