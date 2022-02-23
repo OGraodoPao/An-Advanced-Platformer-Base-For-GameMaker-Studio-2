@@ -1,5 +1,7 @@
 if (live_call()) return live_result;
 
+
+
 // Movement settings
 vspd = 0;
 hspd = 0;
@@ -21,7 +23,7 @@ queue_jump = false;
 
 ignore_collision_this_frame = false;
 
-correct_offset = sprite_width * 0.7;
+correct_offset = sprite_width * 0.3;
 
 // Debug variables
 

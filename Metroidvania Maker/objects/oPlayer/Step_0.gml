@@ -12,15 +12,14 @@ var right = keyboard_check(ord("D"));
 var up = keyboard_check(ord("W"));
 var down = keyboard_check(ord("S"));
 
-var jump_press = keyboard_check_pressed(vk_space);
-var jump_held = keyboard_check(vk_space);
+var jump_press = oInput.jump_press; //keyboard_check_pressed(vk_space);
+var jump_held = oInput.jump_held; //keyboard_check(vk_space);
 
 var on_ground = place_meeting(x, y + 1, pSolid);
 var next_to_ground = collision_line(x, y, x, y + sprite_height * 4, pSolid, false, false) != noone;
 
 var hitting_block = collision_rectangle(bbox_left, bbox_bottom - 1, bbox_right, bbox_top + vspd, pSolid, false, false)//instance_place(x, y + vspd, pSolid);
 
-show_debug_message(on_ground);
 
 // If the player jumped on the wrong position while trying to get on top of a block, corrects the position
 if (hitting_block != noone)
@@ -54,6 +53,10 @@ if (hitting_block != noone)
         x = hitting_block.bbox_right + sprite_width / 2;
         //ignore_collision_this_frame = true;
     }
+	else
+	{
+		gamepad_vibrate_duration(0.02, 0.02, 0.25 * room_speed);
+	}
 
 }
 
@@ -89,7 +92,7 @@ if (jump_press)
     }
 }
 
-hspd = lerp(hspd, (right - left) * spd, speed_buildup);
+hspd = lerp(hspd, oInput.hspd * spd/*(right - left) * spd*/, speed_buildup);
 vspd += grv;
 
 // Clamps jumping and falling speed
