@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sSolidDoubleSlope","path":"sprites/sSolidDoubleSlope/sSolidDoubleSlope.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sSolidDoubleSlope",
     "tags": [],
     "resourceType": "GMSequence",

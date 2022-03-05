@@ -1,4 +1,4 @@
-if (live_call()) return live_result;
+
 
 #region debug toplines
 if (show_debug_toplines)

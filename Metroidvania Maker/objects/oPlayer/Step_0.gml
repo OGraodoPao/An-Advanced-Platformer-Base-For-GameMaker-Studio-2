@@ -1,4 +1,4 @@
-if (live_call()) return live_result;
+
 //ignore_collision_this_frame = false;
 
 if (keyboard_check_pressed(ord("R")))

@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"sSolidSlope","path":"sprites/sSolidSlope/sSolidSlope.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "sSolidSlope",
     "tags": [],
     "resourceType": "GMSequence",
