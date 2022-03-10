@@ -142,7 +142,3 @@ if (show_space_press_input)
 
 draw_self();
 
-
-
-
-

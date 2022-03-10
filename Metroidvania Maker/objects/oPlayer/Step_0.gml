@@ -46,14 +46,18 @@ if (hitting_block != noone)
         // Left position correction
         x = hitting_block.bbox_left - sprite_width / 2;
         //ignore_collision_this_frame = true;
-		show_debug_message("Corrected");
+		
+		// Debug stats
+		positioncorrectuse++;
     }
     else if (right_offset < correct_offset)
     {
         // Right position correction
         x = hitting_block.bbox_right + sprite_width / 2;
         //ignore_collision_this_frame = true;
-		show_debug_message("Corrected");
+		
+		// Debug stats
+		positioncorrectuse++;
     }
 	else
 	{
@@ -72,6 +76,7 @@ if (on_ground)
 
 if (queue_jump and on_ground)
 {
+	
     // Resets and jumps
     queue_jump = false;
     
@@ -84,6 +89,12 @@ if (jump_press)
 {
     if (on_ground or coyote_time > 0)
     {
+		if (coyote_time < coyote_time_max)
+		{
+			// Debug stats
+			coyoteuse++;
+		}
+		
         coyote_time = 0;
         vspd = -jump_force;
     }
@@ -91,6 +102,9 @@ if (jump_press)
     {
         // Sets jumping barely before touching the ground
         queue_jump = true;
+		
+		// Debug stats
+		jumpqueueuse++;
     }
 }
 
@@ -152,3 +166,4 @@ if (!ignore_collision_this_frame)
 
 x += hspd;
 y += vspd;
+

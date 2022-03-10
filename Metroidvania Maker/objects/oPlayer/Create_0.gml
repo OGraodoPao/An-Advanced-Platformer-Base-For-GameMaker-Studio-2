@@ -21,7 +21,7 @@ queue_jump = false;
 
 ignore_collision_this_frame = false;
 
-correct_offset = sprite_width * 0.3;
+correct_offset = sprite_width * 0.4;
 
 // Debug variables
 
@@ -35,9 +35,15 @@ downlines_height = sprite_height * 2;
 
 show_coyote_bar = false;
 
-show_space_press_input = false;
+show_space_press_input = true;
 
 space_press_fade = 0;
 space_hold_fade = 0;
 space_release_fade = 0;
 queue_jump_fade = 0;
+
+// Stats
+show_movement_stats = true;
+coyoteuse = 0;
+positioncorrectuse = 0;
+jumpqueueuse = 0;
