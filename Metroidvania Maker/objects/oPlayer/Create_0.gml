@@ -1,6 +1,3 @@
-
-
-
 // Movement settings
 vspd = 0;
 hspd = 0;
@@ -28,17 +25,17 @@ correct_offset = sprite_width * 0.3;
 
 // Debug variables
 
-show_debug_toplines = true;
+show_debug_toplines = false;
 top_lineduction = 2;
 toplines_height = sprite_height * 5;
 
-show_debug_downlines = true;
+show_debug_downlines = false;
 down_linereduction = 2;
 downlines_height = sprite_height * 2;
 
-show_coyote_bar = true;
+show_coyote_bar = false;
 
-show_space_press_input = true;
+show_space_press_input = false;
 
 space_press_fade = 0;
 space_hold_fade = 0;

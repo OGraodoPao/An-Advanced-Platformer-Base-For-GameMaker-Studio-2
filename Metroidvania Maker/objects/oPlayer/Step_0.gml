@@ -15,8 +15,8 @@ var down = keyboard_check(ord("S"));
 var jump_press = oInput.jump_press; //keyboard_check_pressed(vk_space);
 var jump_held = oInput.jump_held; //keyboard_check(vk_space);
 
-var on_ground = place_meeting(x, y + 1, pSolid);
-var next_to_ground = collision_line(x, y, x, y + sprite_height * 4, pSolid, false, false) != noone;
+var on_ground = collision_rectangle(bbox_left + 1, bbox_bottom - 1, bbox_right - 1, bbox_bottom + 1, pSolid, false, false) != noone;// place_meeting(x, y + 1, pSolid);
+var next_to_ground = collision_line(x, y, x, y + sprite_height * 2.5, pSolid, false, false) != noone;
 
 var hitting_block = collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top + vspd, pSolid, false, false)//instance_place(x, y + vspd, pSolid);
 
@@ -107,41 +107,47 @@ else
     vspd = clamp(vspd, -jump_force - 4, 5);
 }
 
-//if (vspd <= -jump_force)
-
 // Collisions
 if (!ignore_collision_this_frame)
 {	
-    if (place_meeting(x + hspd, y, pSolid))
-    {
-		// Slope
-		if (!place_meeting(x + hspd, y - slope_offset, pSolid))
-		{
-			while (place_meeting(x + hspd, y, pSolid))
+	//if (!place_meeting(x, y, pSolid))
+	//{
+	    if (place_meeting(x + hspd, y, pSolid))
+	    {
+			// Slope
+			if (!place_meeting(x + hspd, y - slope_offset, pSolid))
 			{
-				y -= 0.1;
+				while (place_meeting(x + hspd, y, pSolid))
+				{
+					y -= 0.1;
+				}
+				y -= 1;
 			}
-			y -= 1;
-		}
-		else
-		{
-			// Corrects position
-	        while (!place_meeting(x + sign(hspd), y, pSolid))
+			else
+			{
+				// Corrects position
+		        while (!place_meeting(x + sign(hspd), y, pSolid))
+		        {
+		            x += 0.1 * sign(hspd);
+		        }
+		        hspd = 0;
+			}
+	    }
+	
+		// Vertical collision
+	    if (place_meeting(x, y + vspd, pSolid))
+	    {
+	        while (!place_meeting(x, y + sign(vspd), pSolid))
 	        {
-	            x += 0.1 * sign(hspd);
+	            y += 0.1 * sign(vspd);
 	        }
-	        hspd = 0;
-		}
-    }
-    
-    if (place_meeting(x, y + vspd, pSolid))
-    {
-        while (!place_meeting(x, y + sign(vspd), pSolid))
-        {
-            y += 0.1 * sign(vspd);
-        }
-        vspd = 0;
-    }
+	        vspd = 0;
+	    }
+	//}
+	//else
+	//{
+	//	leave_from_wall();
+	//}
 }
 
 x += hspd;
