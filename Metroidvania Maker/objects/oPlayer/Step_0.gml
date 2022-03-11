@@ -70,6 +70,15 @@ if (coyote_time > 0) coyote_time--;
 // Resets needed variables while on ground
 if (on_ground)
 {
+	
+	if (coyote_time < coyote_time_max - 1)
+	{
+		// Landed
+		
+		draw_yscale -= 0.3;
+		draw_xscale += 0.3;
+	}
+	
     respect_dynamic_jump = true;
     coyote_time = coyote_time_max;
 }
@@ -97,6 +106,10 @@ if (jump_press)
 		
         coyote_time = 0;
         vspd = -jump_force;
+		
+		// Juice
+		draw_xscale += 0.2;
+		draw_yscale -= 0.2;
     }
     else if (next_to_ground)
     {
@@ -167,3 +180,4 @@ if (!ignore_collision_this_frame)
 x += hspd;
 y += vspd;
 
+leave_from_wall();

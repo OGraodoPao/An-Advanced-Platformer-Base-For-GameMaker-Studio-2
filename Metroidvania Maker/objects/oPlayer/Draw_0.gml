@@ -139,6 +139,9 @@ if (show_space_press_input)
     draw_set_alpha(1);
 }
 
+// Draws itself
+draw_sprite_ext(sprite_index, image_index, x, y, draw_xscale * sign(image_xscale), draw_yscale * sign(image_yscale), image_angle, image_blend, image_alpha);
 
-draw_self();
-
+// Juice variables
+draw_xscale = lerp(draw_xscale, abs(image_xscale), 0.1);
+draw_yscale = lerp(draw_yscale, abs(image_yscale), 0.1);
