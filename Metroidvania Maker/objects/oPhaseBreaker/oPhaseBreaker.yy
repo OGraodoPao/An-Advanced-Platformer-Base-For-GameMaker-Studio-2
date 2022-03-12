@@ -3,7 +3,7 @@
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
-  "persistent": false,
+  "persistent": true,
   "parentObjectId": null,
   "physicsObject": false,
   "physicsSensor": false,
@@ -24,11 +24,11 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Gamepad",
-    "path": "folders/Objects/Controls/Gamepad.yy",
+    "name": "Controls",
+    "path": "folders/Objects/Controls.yy",
   },
   "resourceVersion": "1.0",
-  "name": "oGamepadController",
+  "name": "oPhaseBreaker",
   "tags": [],
   "resourceType": "GMObject",
 }

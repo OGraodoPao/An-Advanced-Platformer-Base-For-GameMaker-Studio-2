@@ -1,3 +1,4 @@
+if (global.phasebreak) exit;
 
 // Gets the next coordinates
 var _arrx = movement_points[current_point, 0];

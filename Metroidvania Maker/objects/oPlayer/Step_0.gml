@@ -1,3 +1,9 @@
+if (global.phasebreak == true) exit;
+
+// Juice variables
+draw_xscale = lerp(draw_xscale, abs(image_xscale), 0.1);
+draw_yscale = lerp(draw_yscale, abs(image_yscale), 0.1);
+
 
 //ignore_collision_this_frame = false;
 
