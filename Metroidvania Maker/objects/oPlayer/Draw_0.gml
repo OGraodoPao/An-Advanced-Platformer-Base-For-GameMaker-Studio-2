@@ -140,4 +140,4 @@ if (show_space_press_input)
 }
 
 // Draws itself
-draw_sprite_ext(sprite_index, image_index, x, y, draw_xscale * sign(image_xscale), draw_yscale * sign(image_yscale), image_angle, image_blend, image_alpha);
+draw_sprite_ext(sprite_index, image_index, x, y, draw_xscale * sign(face_dir), draw_yscale * sign(image_yscale), image_angle, image_blend, image_alpha);

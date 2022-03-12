@@ -93,8 +93,8 @@
     "resourceType": "GMNineSliceData",
   },
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Sprites.yy",
+    "name": "Collisions",
+    "path": "folders/Sprites/Collisions.yy",
   },
   "resourceVersion": "1.0",
   "name": "sSolid",

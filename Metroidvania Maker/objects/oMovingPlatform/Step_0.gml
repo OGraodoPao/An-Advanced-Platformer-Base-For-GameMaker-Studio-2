@@ -51,5 +51,3 @@ if (movement_speed != last_movespeed)
 {
 	movement_speed = last_movespeed;
 }
-
-show_debug_message(current_point);

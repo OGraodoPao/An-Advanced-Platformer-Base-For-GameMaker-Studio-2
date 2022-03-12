@@ -2,15 +2,18 @@
 if (keyboard_check(vk_anykey)) current_device = device.keyboard;
 
 // Checks for button presses in a gamepad
-if (gamepad_is_connected(0))
-{
-	if (gamepad_anykey(0, true)) current_device = device.gamepad;
+if (gamepad_is_connected(0) and current_device == device.keyboard)
+{	
+	if (gamepad_anykey(0, true)) 
+	{
+		current_device = device.gamepad;
+	}
 }
 
 
 if (current_device == 0)
 {
-	show_debug_message("Keyboard");
+	//show_debug_message("Keyboard");
 	
 	left = keyboard_check(ord("A"));
 	right = keyboard_check(ord("D"));
@@ -26,7 +29,7 @@ if (current_device == 0)
 }
 else
 {
-	show_debug_message("Gamepad");
+	//show_debug_message("Gamepad");
 	
 	var haxis = gamepad_axis_value(0, gp_axislh);
 	var vaxis = gamepad_axis_value(0, gp_axislv);

@@ -2,7 +2,7 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function gamepad_anykey(device, check_for_axis){
 	
-	for (var i = 0; i < gamepad_button_count(device); i++)
+	var i = 0; repeat (gamepad_button_count(device))
 	{
 		if (gamepad_button_check(device, i) == true) return (true);
 		
@@ -16,6 +16,8 @@ function gamepad_anykey(device, check_for_axis){
 		
 			if (abs(haxis) + abs(vaxis) + abs(haxisrv) + abs(vaxisrv) >= 0.5) return (true);
 		}
+		
+		i++;
 	}
 	
 	
