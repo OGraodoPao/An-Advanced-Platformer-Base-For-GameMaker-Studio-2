@@ -80,10 +80,10 @@ if (on_ground)
 	if (coyote_time < coyote_time_max - 1)
 	{
 		// Landed
-		draw_yscale = 0.7;
-		draw_xscale = 1.3;
+		draw_yscale -= 0.3;
+		draw_xscale += 0.3;
 		
-		gamepad_vibrate_duration(0.01, 0.01, 0.25 * room_speed);
+		if (vspd > 1) gamepad_vibrate_duration(0.1, 0.1, 0.15 * room_speed);
 	}
 	
     respect_dynamic_jump = true;
@@ -116,8 +116,8 @@ if (jump_press)
         vspd = -jump_force;
 		
 		// Juice
-		draw_xscale = 0.7;
-		draw_yscale = 1;
+		draw_xscale -= 0.3;
+		//draw_yscale = 1;
     }
     else if (next_to_ground)
     {
