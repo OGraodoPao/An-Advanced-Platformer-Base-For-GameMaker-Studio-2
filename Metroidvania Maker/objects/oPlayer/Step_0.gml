@@ -1,16 +1,23 @@
+if (keyboard_check_pressed(ord("R")))
+{
+    room_restart();
+}
+
 if (global.phasebreak == true) exit;
+
+// Corrects position if landing on a moving platform
+var _mov = instance_place(x, y + 3, oMovingPlatform);
+
+if (_mov != noone)
+{
+	y = _mov.bbox_top;
+}
 
 // Juice variables
 draw_xscale = lerp(draw_xscale, abs(image_xscale), 0.1);
 draw_yscale = lerp(draw_yscale, abs(image_yscale), 0.1);
 
-
-//ignore_collision_this_frame = false;
-
-if (keyboard_check_pressed(ord("R")))
-{
-    room_restart();
-}
+ignore_collision_this_frame = false;
 
 // Keybidings
 var left = keyboard_check(ord("A"));
@@ -83,7 +90,21 @@ if (on_ground)
 		draw_yscale -= 0.3;
 		draw_xscale += 0.3;
 		
-		if (vspd > 1) gamepad_vibrate_duration(0.1, 0.1, 0.15 * room_speed);
+		show_debug_message(previous_vspd);
+		
+		if (previous_vspd > 2.5) 
+		{
+			gamepad_vibrate_duration(0.1, 0.1, 0.15 * room_speed);
+			
+			// Creates dust
+			var _newemitt = instance_create_depth(x, y, depth - 1, oParticleEmitter);
+		
+			with (_newemitt)
+			{
+				spawn_tick = 0;
+				destroy_after_emit = true;
+			}
+		}
 	}
 	
     respect_dynamic_jump = true;
@@ -116,8 +137,17 @@ if (jump_press)
         vspd = -jump_force;
 		
 		// Juice
-		draw_xscale -= 0.3;
+		draw_xscale -= 0.4;
 		//draw_yscale = 1;
+		
+		var _newemitt = instance_create_depth(x, y, depth - 1, oParticleEmitter);
+		
+		with (_newemitt)
+		{
+			spawn_tick = 0;
+			destroy_after_emit = true;
+		}
+		
     }
     else if (next_to_ground)
     {
@@ -141,6 +171,8 @@ else
 {
     vspd = clamp(vspd, -jump_force - 4, 5);
 }
+
+previous_vspd = vspd;
 
 // Collisions
 if (!ignore_collision_this_frame)
