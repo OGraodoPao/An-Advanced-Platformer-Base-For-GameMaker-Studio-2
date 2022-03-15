@@ -5,13 +5,12 @@ if (keyboard_check_pressed(ord("R")))
 
 if (global.phasebreak == true) exit;
 
-// Corrects position if landing on a moving platform
-var _mov = instance_place(x, y + 3, oMovingPlatform);
-
-if (_mov != noone)
-{
-	y = _mov.bbox_top;
-}
+// CHANGES THE VARIABLES TO THE TIME FACTOR, DON'T DELETE THIS
+// These are also reseted at the end of the step event
+//spd *= global.timefactor;
+grv *= global.timefactor;
+//jump_force *= global.timefactor;
+//max_fall_speed *= global.timefactor;
 
 // Juice variables
 draw_xscale = lerp(draw_xscale, abs(image_xscale), 0.1);
@@ -32,6 +31,14 @@ var on_ground = collision_rectangle(bbox_left + 1, bbox_bottom - 1, bbox_right -
 var next_to_ground = collision_line(x, y, x, y + sprite_height * 2.5, pSolid, false, false) != noone;
 
 var hitting_block = collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_top + vspd, pSolid, false, false)//instance_place(x, y + vspd, pSolid);
+
+// Corrects position if landing on a moving platform
+var _mov = instance_place(x, y + (global.timefactor > 0.5 ? 3 : 5) * global.timefactor, oMovingPlatform);
+
+if (_mov != noone)
+{
+	y = _mov.bbox_top;
+}
 
 
 // If the player jumped on the wrong position while trying to get on top of a block, corrects the position
@@ -165,11 +172,11 @@ vspd += grv;
 // Clamps jumping and falling speed
 if (respect_dynamic_jump)
 {
-    vspd = clamp(vspd, jump_held ? -jump_force : -jump_force + 4, 5);
+    vspd = clamp(vspd, jump_held ? -jump_force : -jump_force + 4, max_fall_speed);
 }
 else
 {
-    vspd = clamp(vspd, -jump_force - 4, 5);
+    vspd = clamp(vspd, -jump_force - 4, max_fall_speed);
 }
 
 previous_vspd = vspd;
@@ -217,9 +224,20 @@ if (!ignore_collision_this_frame)
 	//}
 }
 
-x += hspd;
-y += vspd;
+//hspd *= global.timefactor;
+//vspd *= global.timefactor;
+
+x += hspd * global.timefactor;
+y += vspd * global.timefactor;
+
+//hspd /= global.timefactor;
+//vspd /= global.timefactor;
 
 leave_from_wall();
 
 if (sign(hspd) != 0) face_dir = sign(hspd);
+
+//spd /= global.timefactor;
+grv /= global.timefactor;
+//jump_force /= global.timefactor;
+//max_fall_speed /= global.timefactor;

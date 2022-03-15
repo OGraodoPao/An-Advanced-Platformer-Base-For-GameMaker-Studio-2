@@ -14,6 +14,8 @@ jump_force = 7;
 
 slope_offset = 2.5;
 
+max_fall_speed = 5;
+
 // Juice
 draw_xscale = image_xscale;
 draw_yscale = image_yscale;
@@ -51,7 +53,7 @@ space_release_fade = 0;
 queue_jump_fade = 0;
 
 // Stats
-show_movement_stats = false;
+show_movement_stats = true;
 coyoteuse = 0;
 positioncorrectuse = 0;
 jumpqueueuse = 0;

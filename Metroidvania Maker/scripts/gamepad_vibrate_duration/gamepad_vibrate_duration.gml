@@ -8,5 +8,5 @@ function gamepad_vibrate_duration(left_motor, right_motor, duration)
 		stop_vibrating_in = duration;
 	}
 	
-	gamepad_set_vibration(0, left_motor, right_motor);
+	gamepad_set_vibration(0, left_motor * global.timefactor, right_motor * global.timefactor);
 }

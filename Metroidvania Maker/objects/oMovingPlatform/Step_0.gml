@@ -1,5 +1,7 @@
 if (global.phasebreak) exit;
 
+movement_speed *= global.timefactor;
+
 // Gets the next coordinates
 var _arrx = movement_points[current_point, 0];
 var _arry = movement_points[current_point, 1];
@@ -51,3 +53,6 @@ if (movement_speed != last_movespeed)
 {
 	movement_speed = last_movespeed;
 }
+
+
+movement_speed /= global.timefactor;
